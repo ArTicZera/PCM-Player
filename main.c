@@ -23,6 +23,7 @@ void PlayFrom(DWORD offset)
 
 int main(int argc, char* argv[])
 {
+    //Put the dir of your PCM Audio here
     FILE* f = fopen("Samples/BadApple.pcm", "rb");
 
     if (!f)

@@ -38,18 +38,20 @@ int main(int argc, char* argv[])
 
   HWAVEOUT hWaveOut = { 0 };
 
-	WAVEFORMATEX wfx = { WAVE_FORMAT_PCM, 1, nSamples, nSamples, 1, 8, 0 };
-	waveOutOpen(&hWaveOut, WAVE_MAPPER, &wfx, 0, 0, CALLBACK_NULL);
+  WAVEFORMATEX wfx = { WAVE_FORMAT_PCM, 1, nSamples, nSamples, 1, 8, 0 };
+  waveOutOpen(&hWaveOut, WAVE_MAPPER, &wfx, 0, 0, CALLBACK_NULL);
 
-	WAVEHDR header = { (LPSTR)sbuffer, sizeof(sbuffer), 0, 0, 0, 0, 0, 0 };
+  WAVEHDR header = { (LPSTR)sbuffer, sizeof(sbuffer), 0, 0, 0, 0, 0, 0 };
 
-	waveOutPrepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
-	waveOutWrite(hWaveOut, &header, sizeof(WAVEHDR));
-  	waveOutSetVolume(hWaveOut, MAKELONG(VOLUME, VOLUME));
-  	waveOutUnprepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
-	waveOutClose(hWaveOut);
+  waveOutPrepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
+  waveOutWrite(hWaveOut, &header, sizeof(WAVEHDR));
+	
+  waveOutSetVolume(hWaveOut, MAKELONG(VOLUME, VOLUME));
+	
+  waveOutUnprepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
+  waveOutClose(hWaveOut);
 
-	Sleep(8000 * 1000);
+  Sleep(8000 * 1000);
 
   return 0;
 }

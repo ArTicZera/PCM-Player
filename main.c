@@ -45,8 +45,8 @@ int main(int argc, char* argv[])
 
 	waveOutPrepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
 	waveOutWrite(hWaveOut, &header, sizeof(WAVEHDR));
-  waveOutSetVolume(hWaveOut, MAKELONG(VOLUME, VOLUME));
-  waveOutUnprepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
+  	waveOutSetVolume(hWaveOut, MAKELONG(VOLUME, VOLUME));
+  	waveOutUnprepareHeader(hWaveOut, &header, sizeof(WAVEHDR));
 	waveOutClose(hWaveOut);
 
 	Sleep(8000 * 1000);
